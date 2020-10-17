@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher</title>
+</head>
+<body>
+
+    <div th:object="${teacher}">
+        <div class="form-group py-2">
+            <div>
+                <label for="id">Teacher ID: </label>
+                <span id="id" th:text="*{getID()}"></span>
+            </div>
+            <div>
+                <label for="name">Teacher name: </label>
+                <span id="name" th:text="*{getName()}"></span>
+            </div>
+        </div>
+    </div>
+
+    <form th:method="GET" th:action="@{/teacher/new}">
+        <button>Get schedule for day</button>
+
+    </form>
+    <form th:method="GET" th:action="@{/teacher/new}">
+        <button>Get schedule for month</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <title>All students</title>
+</head>
+<body>
+<div class="container">
+    <h2 style = "text-align: center;">Choose your name: </h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th> Time </th>
+                <th> Room </th>
+                <th> Subject </th>
+                <th> Teacher </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td><a th:href="@{student/{id}(id=${student.getID()})}" th:text="${student.getName()}"> Name </a></td>
+                <td><a th:text="${student.getGroup().getID()}"> Group </a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

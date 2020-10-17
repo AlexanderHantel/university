@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <title>Student</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">University</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/faculty">Faculties</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/department">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/teacher">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/discipline">Disciplines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/group">Groups</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/student">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/schedule">Schedules</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div th:object="${student}">
+            <div class="form-group py-2">
+                <div>
+                    <h4>
+                        <small class="text-muted">Name: </small>
+                        <a th:text="*{getName()}">Name</a>
+                    </h4>
+                    <h4>
+                        <small class="text-muted">Group: </small>
+                        <a th:text="*{getGroup().getName()}">Group</a>
+                    </h4>
+                    <h4>
+                        <small class="text-muted">Faculty: </small>
+                        <a th:text="*{getGroup().getFaculty().getName()}">Faculty</a>
+                    </h4>
+                    <form th:method="GET" th:action="@{/student/new}">
+                        <button type="submit" class="btn btn-primary">Get schedule for day</button>
+                        <input type="text" class="form-control">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form th:method="GET" th:action="@{/people/new}">
+            <button>Get schedule for month</button>
+            <label for="datepicker"></label><input type="text" class="datepicker" id="datepicker">
+        </form>
+    </div>
+
+</body>
+</html>

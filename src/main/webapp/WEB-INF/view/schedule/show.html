@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    <title>Hello</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">University</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/faculty">Faculties</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/department">Departments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/teacher">Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/discipline">Disciplines</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/group">Groups</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/student">Students</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/schedule">Schedules</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="m-3">
+        <div class="row">
+            <div class="col-sm">
+                <form th:method="GET" th:action="@{/student}">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">I'm a student</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="m-3">
+        <div class="row">
+            <div class="col-sm">
+                <form th:method="GET" th:action="@{/teacher}">
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block">I'm a teacher</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
