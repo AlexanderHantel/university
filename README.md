@@ -2,6 +2,7 @@
 Training project that uses:
 + Maven
 + Three-tier architecture
++ PostgreSQL
 + Spring Framework:
   + JDBC (It is planned to switch to JPA & Hibernate in future)
   + MVC
